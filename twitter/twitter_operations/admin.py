@@ -6,7 +6,6 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import escape
 
-# Register your models here.
 from twitter_operations.models import UserProfile, Tweet, Follower
 
 
@@ -56,8 +55,9 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 
 class TweetAdmin(admin.ModelAdmin):
-    list_display = ('user', 'tweet')
+    list_display = ('user', 'tweet', 'created_at')
     search_fields = ('user', 'tweet')
+    list_filter = ('created_at',)
 
 
 class FollowerAdmin(admin.ModelAdmin):
