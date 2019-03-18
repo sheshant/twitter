@@ -2,8 +2,8 @@ from django.conf.urls import url
 from rest_framework.authtoken.views import obtain_auth_token
 
 from twitter_operations.views import UserRudView, PostTweet, FollowPeople, ShowFollowers, ShowFollowing, UserTimeline, \
-    HomeTimeline, UpdateTweet, DeleteTweet, CommentTweet, UpdateComment, DeleteComment, GetAllComments, LikeTweet, \
-    UnlikeTweet, GetAllLikesToTweet, GetAllLikedTweets, UnfollowPeople
+    HomeTimeline, UpdateTweet, DeleteTweet, CommentTweet, UpdateComment, DeleteComment, GetAllComments, \
+    UnlikeTweet, GetAllLikesToTweet, GetAllLikedTweets, UnfollowPeople, LikeATweet
 
 urlpatterns = [
     url(r'^(?P<pk>\d+)/$', UserRudView.as_view(), name='post-rud'),
@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^update_comment/$', UpdateComment.as_view(), name='update_comment'),
     url(r'^delete_comment/$', DeleteComment.as_view(), name='delete_comment'),
     url(r'^get_all_comments/$', GetAllComments.as_view(), name='get_all_comments'),
-    url(r'^like_tweet/$', LikeTweet.as_view(), name='like_tweet'),
+    url(r'^like_tweet/$', LikeATweet.as_view(), name='like_tweet'),
     url(r'^unlike_tweet/$', UnlikeTweet.as_view(), name='unlike_tweet'),
     url(r'^get_all_likes_to_tweet/$', GetAllLikesToTweet.as_view(), name='get_all_likes_to_tweet'),
     url(r'^get_all_liked_tweets/$', GetAllLikedTweets.as_view(), name='get_all_liked_tweets'),

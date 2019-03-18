@@ -11,12 +11,17 @@ ERROR_MESSAGES = {
     'TWEET_NOT_FOUND': 'Tweet id "{}" for user id "{}" not found',
     'TWEET_ALREADY_LIKED': 'Tweet id "{}" already liked by user id "{}"',
     'TWEET_NEVER_LIKED': 'Tweet id "{}" never liked by user id "{}"',
+    'INVALID_COMMENT': 'no comment provided',
+    'INVALID_NEW_COMMENT': 'comment cannot be empty or null',
+    'INVALID_COMMENT_ID': 'Comment id "{}" for user id "{}" not found',
 }
 
 
 SUCCESS_MESSAGE = {
     'SUCCESSFULLY_UNFOLLOWED': 'USER ID {} successfully unfollowed USER ID {}',
     'SUCCESSFULLY_DELETED': 'successfully deleted tweet id "{}"',
+    'SUCCESSFULLY_DELETED_COMMENT': 'successfully deleted comment id "{}"',
     'SUCCESSFULLY_UNLIKED': 'successfully unliked tweet id "{}"',
     'SUCCESSFULLY_UPDATED': 'successfully updated tweet id "{}" to "{}"',
+    'SUCCESSFULLY_UPDATED_COMMENT': 'successfully updated comment id "{}" to "{}"',
 }

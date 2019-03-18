@@ -72,7 +72,7 @@ class LikeTweetAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('user', 'tweet', 'comment', 'created_at')
+    list_display = ('id', 'user', 'tweet', 'comment', 'created_at')
     search_fields = ('user', 'tweet', 'comment')
     list_filter = ('created_at',)
 

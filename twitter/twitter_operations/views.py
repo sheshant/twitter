@@ -1,19 +1,15 @@
-from django.conf import settings
-from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import generics
-from rest_framework.authentication import TokenAuthentication, BasicAuthentication, SessionAuthentication
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from twitter_operations.models import Tweet
+from twitter_operations.models import Tweet, Comment, LikeTweet
 from twitter_operations.permission import TokenPermission
 from twitter_operations.serializers import UserSerializer, ShowFollowerSerializer, \
-    ShowFollowedSerializer, TweetSerializer
+    ShowFollowedSerializer, TweetSerializer, CommentSerializer, LikeTweetUserSerializer
 from twitter_operations.utils import post_tweet, follow_people, unfollow_people, validate_user_id, update_tweet, \
-    delete_tweet, like_tweet, unlike_tweet
+    delete_tweet, like_tweet, unlike_tweet, comment_tweet, upadte_comment, delete_comment, validate_tweet_id
 
 
 class UserRudView(generics.RetrieveUpdateDestroyAPIView):
@@ -122,29 +118,39 @@ class CommentTweet(APIView):
     permission_classes = (TokenPermission, )
 
     def post(self, request):
-        pass
+        return comment_tweet(request.data, request.user)
 
 
 class UpdateComment(APIView):
     permission_classes = (TokenPermission, )
 
     def post(self, request):
-        pass
+        return upadte_comment(request.data, request.user)
 
 
 class DeleteComment(APIView):
     permission_classes = (TokenPermission, )
 
     def post(self, request):
-        pass
+        return delete_comment(request.data, request.user)
 
 
 class GetAllComments(APIView):
+    pagination_class = PageNumberPagination
+    paginator = pagination_class()
+
     def post(self, request):
-        pass
+        tweet_id = validate_tweet_id(request.data.get('tweet_id'))
+        if isinstance(tweet_id, Response):
+            return tweet_id
+
+        queryset = Comment.objects.filter(tweet_id=tweet_id)
+        page = self.paginator.paginate_queryset(queryset, request)
+        serializer = CommentSerializer(page, many=True)
+        return self.paginator.get_paginated_response(serializer.data)
 
 
-class LikeTweet(APIView):
+class LikeATweet(APIView):
     permission_classes = (TokenPermission, )
 
     def post(self, request):
@@ -159,12 +165,35 @@ class UnlikeTweet(APIView):
 
 
 class GetAllLikesToTweet(APIView):
+    pagination_class = PageNumberPagination
+    paginator = pagination_class()
+
     def post(self, request):
-        pass
+        tweet_id = validate_tweet_id(request.data.get('tweet_id'))
+        if isinstance(tweet_id, Response):
+            return tweet_id
+
+        queryset = LikeTweet.objects.filter(tweet_id=tweet_id)
+        page = self.paginator.paginate_queryset(queryset, request)
+        serializer = LikeTweetUserSerializer(page, many=True)
+        return self.paginator.get_paginated_response(serializer.data)
 
 
 class GetAllLikedTweets(APIView):
+    pagination_class = PageNumberPagination
+    paginator = pagination_class()
+
     def post(self, request):
-        pass
+        user_id = validate_user_id(request.data.get('user_id'))
+        if isinstance(user_id, Response):
+            return user_id
+
+        queryset = Tweet.objects.filter(pk__in=LikeTweet.objects.filter(
+            user_id=user_id).values_list('tweet_id', flat=True))
+        page = self.paginator.paginate_queryset(queryset, request)
+        serializer = TweetSerializer(page, many=True)
+        return self.paginator.get_paginated_response(serializer.data)
+
+
 
 

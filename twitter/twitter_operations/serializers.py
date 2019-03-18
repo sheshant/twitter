@@ -2,7 +2,7 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from twitter_operations.models import Tweet, Follower, LikeTweet
+from twitter_operations.models import Tweet, Follower, LikeTweet, Comment
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -137,4 +137,52 @@ class LikeTweetSerializer(serializers.ModelSerializer):
     class Meta:
         model = LikeTweet
         fields = ['user_id', 'tweet_id']
+
+
+class CommentSerializer(serializers.ModelSerializer):
+    user_id = serializers.IntegerField()
+    tweet_id = serializers.IntegerField()
+
+    class Meta:
+        model = Comment
+        fields = ['user_id', 'tweet_id', 'comment', 'created_at']
+
+
+class LikeTweetUserSerializer(serializers.ModelSerializer):
+    id = serializers.SerializerMethodField(read_only=True)
+    username = serializers.SerializerMethodField(read_only=True)
+    full_name = serializers.SerializerMethodField(read_only=True)
+    date_joined = serializers.SerializerMethodField(read_only=True)
+    photo = serializers.SerializerMethodField(read_only=True)
+    gender = serializers.SerializerMethodField(read_only=True)
+
+    class Meta:
+        model = LikeTweet
+        fields = [
+            'id',
+            'username',
+            'full_name',
+            'date_joined',
+            'photo',
+            'gender',
+            'created_at',
+        ]
+
+    def get_id(self, obj):
+        return obj.user.pk
+
+    def get_username(self, obj):
+        return obj.user.username
+
+    def get_full_name(self, obj):
+        return obj.user.get_full_name()
+
+    def get_date_joined(self, obj):
+        return obj.user.date_joined
+
+    def get_photo(self, obj):
+        return obj.user.user.get_photo_path()
+
+    def get_gender(self, obj):
+        return obj.user.user.gender
 
