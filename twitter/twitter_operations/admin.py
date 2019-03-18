@@ -6,7 +6,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.core.urlresolvers import reverse
 from django.template.defaultfilters import escape
 
-from twitter_operations.models import UserProfile, Tweet, Follower
+from twitter_operations.models import UserProfile, Tweet, Follower, Comment, LikeTweet
 
 
 class UserAdmin(BaseUserAdmin):
@@ -55,14 +55,26 @@ class UserProfileAdmin(admin.ModelAdmin):
 
 
 class TweetAdmin(admin.ModelAdmin):
-    list_display = ('user', 'tweet', 'created_at')
+    list_display = ('id', 'user', 'tweet', 'created_at')
     search_fields = ('user', 'tweet')
     list_filter = ('created_at',)
 
 
 class FollowerAdmin(admin.ModelAdmin):
-    list_display = ('follower_user', 'followed_user')
+    list_display = ('follower_user', 'followed_user', 'created_at')
     search_fields = ('follower_user', 'followed_user')
+
+
+class LikeTweetAdmin(admin.ModelAdmin):
+    list_display = ('user', 'tweet', 'created_at')
+    search_fields = ('user', 'tweet')
+    list_filter = ('created_at',)
+
+
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('user', 'tweet', 'comment', 'created_at')
+    search_fields = ('user', 'tweet', 'comment')
+    list_filter = ('created_at',)
 
 
 admin.site.unregister(User)
@@ -70,3 +82,5 @@ admin.site.register(User, UserAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Tweet, TweetAdmin)
 admin.site.register(Follower, FollowerAdmin)
+admin.site.register(Comment, CommentAdmin)
+admin.site.register(LikeTweet, LikeTweetAdmin)
