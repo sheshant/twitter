@@ -32,13 +32,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/twitter_operations/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="185" column="6" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="6" />
+            <state relative-caret-position="-2982">
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#43#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/twitter_operations/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
+            <state relative-caret-position="2135">
+              <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -147,11 +146,11 @@
         <option value="$PROJECT_DIR$/twitter_operations/models.py" />
         <option value="$PROJECT_DIR$/twitter_operations/constants.py" />
         <option value="$PROJECT_DIR$/twitter_operations/serializers.py" />
-        <option value="$PROJECT_DIR$/twitter_operations/views.py" />
         <option value="$PROJECT_DIR$/twitter_operations/urls.py" />
         <option value="$PROJECT_DIR$/twitter_operations/utils.py" />
         <option value="$PROJECT_DIR$/twitter_operations/admin.py" />
         <option value="$PROJECT_DIR$/twitter/settings.py" />
+        <option value="$PROJECT_DIR$/twitter_operations/views.py" />
       </list>
     </option>
   </component>
@@ -275,7 +274,7 @@
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.3495671" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39935064" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -290,13 +289,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/twitter_operations/views.py</url>
-          <line>194</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="12" />
     </breakpoint-manager>
   </component>
@@ -387,7 +379,7 @@
         <state relative-caret-position="272">
           <caret line="23" column="35" lean-forward="true" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -464,13 +456,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.virtualenvs/twitter/lib/python3.6/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="487" selection-start-line="487" selection-end-line="487" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/twitter_operations/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -508,16 +493,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/twitter_operations/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="161" column="5" lean-forward="true" selection-start-line="161" selection-start-column="5" selection-end-line="161" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/twitter/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="333">
@@ -535,12 +510,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/twitter/lib/python3.6/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="485" selection-start-line="485" selection-end-line="485" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/twitter_operations/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="185" column="6" selection-start-line="185" selection-start-column="6" selection-end-line="185" selection-end-column="6" />
+        <state relative-caret-position="-2982">
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/twitter_operations/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2135">
+          <caret line="151" lean-forward="true" selection-start-line="151" selection-end-line="151" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
