@@ -9,7 +9,7 @@ from twitter_operations.permission import TokenPermission
 from twitter_operations.serializers import UserSerializer, ShowFollowerSerializer, \
     ShowFollowedSerializer, TweetSerializer, CommentSerializer, LikeTweetUserSerializer
 from twitter_operations.utils import post_tweet, follow_people, unfollow_people, validate_user_id, update_tweet, \
-    delete_tweet, like_tweet, unlike_tweet, comment_tweet, upadte_comment, delete_comment, validate_tweet_id
+    delete_tweet, like_tweet, unlike_tweet, comment_tweet, update_comment, delete_comment, validate_tweet_id
 
 
 class UserRudView(generics.RetrieveUpdateDestroyAPIView):
@@ -125,7 +125,7 @@ class UpdateComment(APIView):
     permission_classes = (TokenPermission, )
 
     def post(self, request):
-        return upadte_comment(request.data, request.user)
+        return update_comment(request.data, request.user)
 
 
 class DeleteComment(APIView):

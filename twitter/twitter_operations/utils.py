@@ -169,7 +169,7 @@ def comment_tweet(params, user):
         return Response(data=comment_serializer.errors, status=HTTP_400_BAD_REQUEST)
 
 
-def upadte_comment(params, user):
+def update_comment(params, user):
     comment_id = params.get('comment_id')
     comment_queryset = Comment.objects.filter(pk=comment_id, user_id=user.pk)
     if not comment_id or not comment_id.isdigit() or not comment_queryset.exists():
